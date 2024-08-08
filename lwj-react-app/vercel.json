@@ -1,12 +1,27 @@
 {
     "version": 2,
     "builds": [
-        { "src": "api/cards.mjs", "use": "@vercel/node" },
-        { "src": "src/**/*", "use": "@vercel/static-build" }
+      {
+        "src": "api/cards.mjs",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      }
     ],
     "routes": [
-        { "src": "/api/(.*)", "dest": "/api/cards.mjs" },
-        { "src": "/(.*)", "dest": "/index.html" }
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/cards.mjs"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/dist/$1"
+      }
     ]
-}
-
+  }
+  
