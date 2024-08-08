@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './Card.jsx';
-import pic1 from './assets/react.svg';
+import pic1 from './assets/Globe.png';
 
 
 function App() {
