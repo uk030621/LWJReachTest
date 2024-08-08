@@ -8,7 +8,8 @@ function App() {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/cards')
+        //axios.get('http://localhost:5000/api/cards')
+        axios.get('/api/cards')
             .then(response => {
                 setCards(response.data);
             })
