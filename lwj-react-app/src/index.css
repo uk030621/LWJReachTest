@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevents horizontal overflow on the body */
+}
+
+.container {
+  display: flex;
+  flex-direction: row; /* Align items in a horizontal row */
+  flex-wrap: wrap; /* Prevent cards from wrapping to the next line */
+  justify-content: flex-start; /* Align items to the start */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  width: 100%; /* Ensure container takes the full width */
+}
+
+.card {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  width: 250px; /* Fixed width to ensure consistent size */
+  height: 380px; /* Fixed height for consistent size */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  flex: 0 0 auto; /* Prevent flexbox from altering the size of the cards */
+}
+
+.card .card-image{
+  width: 60%; /* Makes the image take the full width of its container */
+  height: auto; /* Set a fixed height for uniform image sizes */
+  object-fit: cover; /* Ensures the image covers the set dimensions without distortion */
+  border-radius: 10px;
+}
+
+.card .card-title{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: hsl(0, 0%, 20%);
+}
+
+.card .card-text{
+  font-family: Arial, Helvetica, sans-serif;
+  color: hsl(0, 0%, 30%);
+}
+
+.button{
+  background-color: hsl(200, 100%, 50%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.student{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  padding: 10px;
+  border: 1px solid hsl(0, 0%, 50%, 0.8);
+}
+
+.student p{
+  margin: 0;
+
+}
+
+
+

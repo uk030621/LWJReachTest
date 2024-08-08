@@ -1,0 +1,32 @@
+[
+    {
+        "pic": "https://randomuser.me/api/portraits/men/1.jpg",
+        "name": "John Doe",
+        "age": 65,
+        "pensioner": true
+    },
+    {
+        "pic": "https://randomuser.me/api/portraits/women/2.jpg",
+        "name": "Jane Doe",
+        "age": 66,
+        "pensioner": true
+    },
+    {
+        "pic": "https://randomuser.me/api/portraits/men/3.jpg",
+        "name": "Harry Doe",
+        "age": 28,
+        "pensioner": false
+    },
+    {
+        "pic": "https://randomuser.me/api/portraits/women/4.jpg",
+        "name": "Alice Smith",
+        "age": 34,
+        "pensioner": false
+    },
+    {
+        "pic": "https://randomuser.me/api/portraits/men/5.jpg",
+        "name": "Bob Johnson",
+        "age": 72,
+        "pensioner": true
+    }
+]

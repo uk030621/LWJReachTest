@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "api/cards.mjs", "use": "@vercel/node" },
+        { "src": "src/**/*", "use": "@vercel/static-build" }
+    ],
+    "routes": [
+        { "src": "/api/(.*)", "dest": "/api/cards.mjs" },
+        { "src": "/(.*)", "dest": "/index.html" }
+    ]
+}
+
