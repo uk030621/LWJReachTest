@@ -20,7 +20,6 @@ function App() {
 
     return (
         <div className="container">
-            <p>Profile Card</p>
             {cards.map((card, index) => (
                 <Card 
                     key={index}
