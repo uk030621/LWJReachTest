@@ -9,7 +9,7 @@ function App() {
 
     useEffect(() => {
         //axios.get('http://localhost:5000/api/cards')
-        axios.get('/api/cards')
+        axios.get('/api/cards') //use for internet (vercel) or use previous line for local server. 
             .then(response => {
                 setCards(response.data);
             })
