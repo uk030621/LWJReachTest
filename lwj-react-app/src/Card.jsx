@@ -8,7 +8,6 @@ function Card(props){
             <p>Name: {props.name}</p>
             <p>Age: {props.age}</p>
             <p>Pensioner: {props.pensioner ? "Yes":"No"}</p>
-            <p>Profile</p>
         </div>
         
     );
