@@ -5,13 +5,34 @@ body {
   overflow-x: hidden; /* Prevents horizontal overflow on the body */
 }
 
-.container {
+input{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.container-input .create-card-button{
+  margin-left: 15px;
+}
+
+.container-input{
   display: flex;
-  flex-direction: row; /* Align items in a horizontal row */
+  flex-direction: row; /* Align items in a horizontal row */  
   flex-wrap: wrap; /* Prevent cards from wrapping to the next line */
   justify-content: flex-start; /* Align items to the start */
   overflow-x: auto; /* Enable horizontal scrolling if needed */
   width: 100%; /* Ensure container takes the full width */
+  margin-top: 15px;
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: row; /* Align items in a horizontal row */  
+  flex-wrap: wrap; /* Prevent cards from wrapping to the next line */
+  justify-content: flex-start; /* Align items to the start */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  width: 100%; /* Ensure container takes the full width */
+  margin-top: 15px;
 }
 
 .card {

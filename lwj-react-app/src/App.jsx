@@ -19,7 +19,10 @@ function App() {
 
     const createCard = () => {
         axios.post(API_BASE_URL, newCard)
-            .then(response => setCards([...cards, response.data]))
+            .then(response => {
+                setCards([...cards, response.data]);
+                setNewCard({ name: '', age: '', pensioner: false, pic: '' }); // Clear the input fields
+            })
             .catch(error => console.error('Error creating card:', error));
     };
 
@@ -36,7 +39,7 @@ function App() {
     };
 
     return (
-        <div className="container">
+        <div className="container-input">
             <div>
                 <input
                     type="text"
@@ -64,16 +67,18 @@ function App() {
                         onChange={(e) => setNewCard({ ...newCard, pensioner: e.target.checked })}
                     />
                 </label>
-                <button onClick={createCard}>Create Card</button>
+                <button className="create-card-button" onClick={createCard}>Create Card</button>
             </div>
-            {cards.map((card, index) => (
-                <Card
-                    key={index}
-                    {...card}
-                    onUpdate={(updatedCard) => updateCard(card._id, updatedCard)}
-                    onDelete={() => deleteCard(card._id)}
-                />
-            ))}
+            <div className='container'>
+                {cards.map((card, index) => (
+                    <Card
+                        key={index}
+                        {...card}
+                        onUpdate={(updatedCard) => updateCard(card._id, updatedCard)}
+                        onDelete={() => deleteCard(card._id)}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
