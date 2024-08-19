@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './Card.jsx';
-import pic1 from './assets/Globe.png';
 
 const API_BASE_URL = 
   window.location.hostname === 'localhost'
@@ -51,6 +50,20 @@ function App() {
                     value={newCard.age}
                     onChange={(e) => setNewCard({ ...newCard, age: e.target.value })}
                 />
+                <input
+                    type="text"
+                    placeholder="Image URL"
+                    value={newCard.pic}
+                    onChange={(e) => setNewCard({ ...newCard, pic: e.target.value })}
+                />
+                <label>
+                    Pensioner:
+                    <input
+                        type="checkbox"
+                        checked={newCard.pensioner}
+                        onChange={(e) => setNewCard({ ...newCard, pensioner: e.target.checked })}
+                    />
+                </label>
                 <button onClick={createCard}>Create Card</button>
             </div>
             {cards.map((card, index) => (

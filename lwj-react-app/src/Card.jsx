@@ -24,6 +24,19 @@ function Card({ _id, pic, name, age, pensioner, onUpdate, onDelete }) {
                         value={updatedCard.age}
                         onChange={(e) => setUpdatedCard({ ...updatedCard, age: e.target.value })}
                     />
+                    <input
+                        type="text"
+                        value={updatedCard.pic}
+                        onChange={(e) => setUpdatedCard({ ...updatedCard, pic: e.target.value })}
+                    />
+                    <label>
+                        Pensioner:
+                        <input
+                            type="checkbox"
+                            checked={updatedCard.pensioner}
+                            onChange={(e) => setUpdatedCard({ ...updatedCard, pensioner: e.target.checked })}
+                        />
+                    </label>
                     <button onClick={handleUpdate}>Save</button>
                 </>
             ) : (
