@@ -1,17 +1,42 @@
+import React, { useState } from 'react';
 
-function Card(props){
+function Card({ _id, pic, name, age, pensioner, onUpdate, onDelete }) {
+    const [isEditing, setIsEditing] = useState(false);
+    const [updatedCard, setUpdatedCard] = useState({ name, age, pensioner, pic });
 
-    return(
-        
+    const handleUpdate = () => {
+        onUpdate(updatedCard);
+        setIsEditing(false);
+    };
+
+    return (
         <div className="card">
-            <img className="card-image"  src = {props.pic} alt = "profile picture"></img>
-            <p>Name: {props.name}</p>
-            <p>Age: {props.age}</p>
-            <p>Pensioner: {props.pensioner ? "Yes":"No"}</p>
+            <img className="card-image" src={pic || '/assets/Globe.png'} alt="profile picture" />
+            {isEditing ? (
+                <>
+                    <input
+                        type="text"
+                        value={updatedCard.name}
+                        onChange={(e) => setUpdatedCard({ ...updatedCard, name: e.target.value })}
+                    />
+                    <input
+                        type="number"
+                        value={updatedCard.age}
+                        onChange={(e) => setUpdatedCard({ ...updatedCard, age: e.target.value })}
+                    />
+                    <button onClick={handleUpdate}>Save</button>
+                </>
+            ) : (
+                <>
+                    <p>Name: {name}</p>
+                    <p>Age: {age}</p>
+                    <p>Pensioner: {pensioner ? "Yes" : "No"}</p>
+                </>
+            )}
+            <button onClick={() => setIsEditing(!isEditing)}>Edit</button>
+            <button onClick={onDelete}>Delete</button>
         </div>
-        
     );
-
 }
 
-export default Card
+export default Card;

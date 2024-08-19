@@ -3,36 +3,62 @@ import axios from 'axios';
 import Card from './Card.jsx';
 import pic1 from './assets/Globe.png';
 
-// Define the API Base URL
 const API_BASE_URL = 
   window.location.hostname === 'localhost'
-  ? 'http://localhost:5000/api/cards'  // Development URL
-  : '/api/cards';  // Production URL
-
-
+  ? 'http://localhost:5000/api/cards'
+  : '/api/cards';
 
 function App() {
     const [cards, setCards] = useState([]);
+    const [newCard, setNewCard] = useState({ name: '', age: '', pensioner: false, pic: '' });
 
     useEffect(() => {
-        axios.get(API_BASE_URL) //use for internet (vercel) or use previous line for local server. 
-            .then(response => {
-                setCards(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the data!', error);
-            });
+        axios.get(API_BASE_URL)
+            .then(response => setCards(response.data))
+            .catch(error => console.error('There was an error fetching the data!', error));
     }, []);
+
+    const createCard = () => {
+        axios.post(API_BASE_URL, newCard)
+            .then(response => setCards([...cards, response.data]))
+            .catch(error => console.error('Error creating card:', error));
+    };
+
+    const updateCard = (id, updatedCard) => {
+        axios.put(`${API_BASE_URL}/${id}`, updatedCard)
+            .then(response => setCards(cards.map(card => (card._id === id ? response.data : card))))
+            .catch(error => console.error('Error updating card:', error));
+    };
+
+    const deleteCard = (id) => {
+        axios.delete(`${API_BASE_URL}/${id}`)
+            .then(() => setCards(cards.filter(card => card._id !== id)))
+            .catch(error => console.error('Error deleting card:', error));
+    };
 
     return (
         <div className="container">
+            <div>
+                <input
+                    type="text"
+                    placeholder="Name"
+                    value={newCard.name}
+                    onChange={(e) => setNewCard({ ...newCard, name: e.target.value })}
+                />
+                <input
+                    type="number"
+                    placeholder="Age"
+                    value={newCard.age}
+                    onChange={(e) => setNewCard({ ...newCard, age: e.target.value })}
+                />
+                <button onClick={createCard}>Create Card</button>
+            </div>
             {cards.map((card, index) => (
-                <Card 
+                <Card
                     key={index}
-                    pic={card.pic || pic1} 
-                    name={card.name} 
-                    age={card.age} 
-                    pensioner={card.pensioner} 
+                    {...card}
+                    onUpdate={(updatedCard) => updateCard(card._id, updatedCard)}
+                    onDelete={() => deleteCard(card._id)}
                 />
             ))}
         </div>
