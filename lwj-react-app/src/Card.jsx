@@ -30,8 +30,8 @@ function Card({ _id, pic, name, age, pensioner, onUpdate, onDelete }) {
                         onChange={(e) => setUpdatedCard({ ...updatedCard, pic: e.target.value })}
                     />
                     <label>
-                        Pensioner:
-                        <input
+                        Employed:
+                        <input className='checkbox-label'
                             type="checkbox"
                             checked={updatedCard.pensioner}
                             onChange={(e) => setUpdatedCard({ ...updatedCard, pensioner: e.target.checked })}
@@ -43,7 +43,7 @@ function Card({ _id, pic, name, age, pensioner, onUpdate, onDelete }) {
                 <>
                     <p>Name: {name}</p>
                     <p>Age: {age}</p>
-                    <p>Pensioner: {pensioner ? "Yes" : "No"}</p>
+                    <p>Employed: {pensioner ? "Yes" : "No"}</p>
                 </>
             )}
             <button onClick={() => setIsEditing(!isEditing)}>Edit</button>

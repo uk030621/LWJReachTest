@@ -59,8 +59,8 @@ function App() {
                     value={newCard.pic}
                     onChange={(e) => setNewCard({ ...newCard, pic: e.target.value })}
                 />
-                <label>
-                    Pensioner:
+                <label className='employed-label'>
+                    Employed:
                     <input
                         type="checkbox"
                         checked={newCard.pensioner}
