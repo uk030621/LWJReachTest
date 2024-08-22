@@ -8,10 +8,21 @@ body {
 input{
   margin-right: 10px;
   margin-left: 10px;
+  padding: 7px;
+  border-radius: 10px;
 }
 
 .container-input .create-card-button{
-  margin-left: 55px;
+  margin-left: 10px;
+  padding: 7px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: grey;
+  color: white;
+}
+
+.container-input .create-card-button:hover{
+  background-color: green;
 }
 
 .container-input{
@@ -90,6 +101,7 @@ input{
 
 .employed-label{
   margin-left: 15px;
+  font-size: 20px;
   
 }
 

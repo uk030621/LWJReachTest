@@ -60,14 +60,20 @@ function App() {
                     onChange={(e) => setNewCard({ ...newCard, pic: e.target.value })}
                 />
                 <label className='employed-label'>
-                    Employed:
+                    Employed?:
                     <input
                         type="checkbox"
                         checked={newCard.pensioner}
                         onChange={(e) => setNewCard({ ...newCard, pensioner: e.target.checked })}
                     />
                 </label>
-                <button className="create-card-button" onClick={createCard}>Create Card</button>
+                <br>
+                </br>
+                <br>
+                </br>
+                <div className='container-create-button'>
+                    <button className="create-card-button" onClick={createCard}>Create Card</button>
+                </div>
             </div>
             <div className='container'>
                 {cards.map((card, index) => (
