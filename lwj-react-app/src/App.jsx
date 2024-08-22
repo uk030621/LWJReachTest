@@ -67,10 +67,6 @@ function App() {
                         onChange={(e) => setNewCard({ ...newCard, pensioner: e.target.checked })}
                     />
                 </label>
-                <br>
-                </br>
-                <br>
-                </br>
                 <div className='container-create-button'>
                     <button className="create-card-button" onClick={createCard}>Create Card</button>
                 </div>
